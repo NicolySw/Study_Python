@@ -4,7 +4,6 @@ not_primes = []  # список не простых чисел
 for i in range(0, len(numbers), 1):
     if numbers[i] > 3:
         for j in range(2, numbers[i]-1):
-            k = numbers[i]
             flag = False
             if numbers[i] % j != 0:
                 flag = True
