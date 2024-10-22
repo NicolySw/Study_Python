@@ -10,7 +10,7 @@ def sum_(data_):
 
     if isinstance(data_, str):                        # Если строк - считаем ее длину
         summa += len(data_)
-    if isinstance(data_, int):                        # Если число - просто прибавляем его к сумме
+    if isinstance(data_, (int, float)):                        # Если число - просто прибавляем его к сумме
         summa += data_
     return summa
 
