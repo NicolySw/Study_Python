@@ -17,7 +17,7 @@ class House:
         return f'Название: {self.name}, кол-во этажей: {self.number_of_floors}'
 
     def __eq__(self, other):
-        return self.number_of_floors == other.number_of_floors and self.name == other.name
+        return self.number_of_floors == other.number_of_floors
 
     def __lt__(self, other):
         return self.number_of_floors < other.number_of_floors
@@ -35,13 +35,15 @@ class House:
         return self.number_of_floors != other.number_of_floors
 
     def __add__(self, value):
-        return self.number_of_floors + value
+        self.number_of_floors = self.number_of_floors + value
+        return self
 
     def __radd__(self, value):
-        return self.number_of_floors + value
+        return self.__add__(value)
 
     def __iadd__(self, value):
-        self.number_of_floors += value
+        return self.__add__(value)
+
 
 
 h1 = House('ЖК Эльбрус', 10)
