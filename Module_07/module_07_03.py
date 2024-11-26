@@ -27,21 +27,22 @@
 
 
 class WordsFinder:
-    def __init__(self, file_name):
+    def __init__(self, *file_name: str):
         self.file_name = file_name
 
     def get_all_words(self):
         all_words = {}
         stripped_line = ''
-        a = 0
-        with open(self.file_name, encoding='utf-8') as file:
-            for line in file:
-                for word in line.split():
-                    char = [",", ".", "=", "!", "?", ";", ":", " - ", " "]
-                    for i in range(0, len(char)):
-                        word = word.replace(char[i], "")
-                    stripped_line += word.lower() + ' '
-            all_words[self.file_name] = stripped_line.split()
+        for file_name in self.file_name:
+            with open(file_name, encoding='utf-8') as file:
+                for line in file:
+                    for word in line.split():
+                        char = [",", ".", "=", "!", "?", ";", ":", " - ", " "]
+                        for i in range(0, len(char)):
+                            word = word.replace(char[i], "")
+                        stripped_line += word.lower() + ' '
+                all_words[file_name] = stripped_line.split()
+                stripped_line = ''
         return all_words
 
     def find(self, word):
@@ -58,43 +59,12 @@ class WordsFinder:
     def count(self, word):
         dict_ = {}
         for name, word_ in self.get_all_words().items():
-            count = 0
-            for char in word_:
-                if char == word.lower():
-                    count += 1
-                    dict_[name] = count
+            dict_[name] = word_.count(word.lower())
         return dict_
 
 
-
-# for name, words in get_all_words().items():
-# Логика методов find или count
-
-
-finder2 = WordsFinder('test_file.txt')
+finder2 = WordsFinder('test_file.txt', 'test_file_1.txt')
 print(finder2.get_all_words()) # Все слова
 print(finder2.find('TEXT')) # 3 слово по счёту
 print(finder2.count('teXT')) # 4 слова teXT в тексте всего
 
-
-#
-# Вывод на консоль:
-# {'test_file.txt': ["it's", 'a', 'text', 'for', 'task', 'найти', 'везде', 'используйте', 'его', 'для', 'самопроверки',
-#                    'успехов', 'в', 'решении', 'задачи', 'text', 'text', 'text']}
-# {'test_file.txt': 3}
-# {'test_file.txt': 4}
-#
-# Запустите этот код с другими примерами предложенными здесь.
-# Если решение верное, то результаты должны совпадать с предложенными.
-#
-# Примечания:
-# 1.	Регистром слов при поиске можно пренебречь. ('teXT' ~ 'text')
-# 2.	Решайте задачу последовательно - написав один метод, проверьте результаты его работы.
-
-#
-# example_str = "T i m! e, w ?e ?b!"
-# char = [",", ".", "=", "!", "?", ";", ":", " - ", " "]
-# for i in range(0, len(char)):
-#     example_str = example_str.replace(char[i], "")
-#
-# print(example_str)
