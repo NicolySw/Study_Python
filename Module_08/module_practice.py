@@ -26,7 +26,7 @@ def calc(line, count):
         return f'{operand_1} {operation} {operand_2} = {operand_1 % operand_2}'
 
 
-count =0
+count = 0
 with open('calc.txt', 'r') as file:
     for line in file:
         count += 1
