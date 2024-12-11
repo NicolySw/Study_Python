@@ -7,9 +7,9 @@
 # 2.	Опишите логику работы внутри функции all_variants.
 # 3.	Вызовите функцию all_variants и выполните итерации.
 def all_variants(text):
-    for i in range(len(text)):
-        for j in range(len(text) - i):
-            yield text[j:j + i + 1]
+    for size in range(len(text)):
+        for j in range(len(text) - size):
+            yield text[j:j + size + 1]
 
 
 a = all_variants("abc")
