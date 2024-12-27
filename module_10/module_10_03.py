@@ -34,6 +34,7 @@ import threading
 import random
 from time import sleep
 
+
 class Bank:
 
     balance = 0
