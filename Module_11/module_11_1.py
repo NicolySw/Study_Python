@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 # линейный график
 plt.plot([1, 2, 3, 4])
@@ -21,4 +22,15 @@ labels = ["Ford", "Toyota", "BMW", "Audi", "Jaguar"]
 
 plt.pie(vals, labels=labels)
 plt.title("Распределение марок автомобилей на дороге")
+plt.show()
+
+# Построение квадратичной функции с помощью numpy
+
+x = np.linspace(-2, 2, 100)        # используется для генерации последовательности чисел
+                                            # в линейном пространстве с одинаковым размером шага
+
+y = x ** 2
+fig = plt.figure(figsize=(10, 5))
+plt.plot(x, y)
+
 plt.show()
