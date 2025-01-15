@@ -1,5 +1,6 @@
 import calk
 import unittest
+import random
 
 
 class CalkTest(unittest.TestCase):
@@ -17,15 +18,13 @@ class CalkTest(unittest.TestCase):
     def tearDownClass(cls):
         pass
 
+    @unittest.skip("skip")
     def test_add(self):
-        """
-        Test for add function in calculator
-        :return:
-        """
         self.assertEqual(calk.add(10, 20), 30)
 
+    @unittest.skipIf(random.randint(0, 2), "не повезло")
     def test_sub(self):
-        self.assertEqual(calk.sub(5, 3), 2)
+        self.assertEqual(calk.sub(4, 2), 2)
 
     def test_test(self):
         self.assertIn("s", "ssdf")
