@@ -1,0 +1,10 @@
+2025-01-15 14:07:51,874 - root - INFO - Successful divided 3 and 4
+2025-01-15 14:07:51,874 - root - ERROR - Na nol ne del
+Traceback (most recent call last):
+  File "C:\Users\Nikolay\Desktop\urban-university\Study_Python\Module_12\Lesson_12_01\calk.py", line 18, in div
+    a / b
+    ~~^~~
+ZeroDivisionError: division by zero
+2025-01-15 14:07:51,874 - root - INFO - Successful square root of 4
+2025-01-15 14:07:51,874 - root - ERROR - You cannot extract the root from a negative number
+NoneType: None
