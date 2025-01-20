@@ -5,7 +5,7 @@ from aiogram.dispatcher.filters.builtin import Text
 
 import asyncio
 
-api = "7905148297:AAFa22bbG_ZIQB7FsgpDv9-IImLADqZCr60"
+api = ""
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
