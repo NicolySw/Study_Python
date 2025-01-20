@@ -4,7 +4,15 @@ from aiogram.dispatcher.filters.state import StatesGroup, StatesGroup, State
 from aiogram.dispatcher import FSMContext
 import asyncio
 
-api = "7905148297:AAFa22bbG_ZIQB7FsgpDv9-IImLADqZCr60"
+
+def api_(file_name="key.txt"):
+    file = open(file_name, "r")
+    data = file.read()
+    file.close()
+    return data
+
+
+api = api_()
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
