@@ -6,7 +6,14 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 import asyncio
 
 
-api = ""
+def api_(file_name = "key.txt"):
+    file = open(file_name, "r")
+    data = file.read()
+    file.close()
+    return data
+
+
+api = api_()
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
