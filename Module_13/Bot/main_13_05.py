@@ -1,13 +1,20 @@
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import StatesGroup, State
-
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 import asyncio
+
 
 api = ""
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
+
+kb = ReplyKeyboardMarkup(resize_keyboard=True)
+button = KeyboardButton(text='Рассчитать')
+button_2 = KeyboardButton(text='Информация')
+kb.add(button)
+kb.add(button_2)
 
 
 class UserState(StatesGroup):
@@ -16,7 +23,7 @@ class UserState(StatesGroup):
     weight = State()
 
 
-@dp.message_handler(text="Calories")
+@dp.message_handler(text="Рассчитать")
 async def set_age(message: types.Message):
     await message.answer("Введите свой возраст:")
     await UserState.age.set()
@@ -48,7 +55,7 @@ async def send_calories(message: types.Message, state):
 @dp.message_handler(commands=['start'])
 async def start(message):
     await message.answer('Привет! Я бот помогающий вашему здоровью.'
-                         ' Введите слово Calories')
+                         ' Введите слово Calories', reply_markup=kb)
 
 
 @dp.message_handler()
