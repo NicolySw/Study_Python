@@ -6,7 +6,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 import asyncio
 
 
-def api_(file_name = "key.txt"):
+def api_(file_name="key.txt"):
     file = open(file_name, "r")
     data = file.read()
     file.close()
